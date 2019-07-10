@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE compactdiscs [
+   <!ELEMENT compactdiscs (compactdisc+)
+   <!ELEMENT compactdisc (artist, title, tracks, price)>
+   <!ELEMENT artist (#PCDATA)>
+   <!ATTLIST artist type (individual | band) #REQUIRED>
+   <!ELEMENT title (#PCDATA)>
+   <!ATTLIST title numberoftracks CDATA #REQUIRED>
+   <!ELEMENT tracks (track*)>
+   <!ELEMENT price (#PCDATA)>
+   <!ELEMENT track (#PCDATA)>
+]>
+
+<compactdiscs>
+	<compactdisc>
+		<artist type="individual">김가수</artist>
+		<title>나는가수다</title>
+		<tacks>1</tacks>
+		<track>배고파</track>
+		<price>10000</price>
+	</compactdisc>
+	<compactdisc>
+		<artist type="band">밴드</artist>
+		<title>나는밴드다</title>
+		<tacks>1</tacks>
+		<track>배고파</track>
+		<price>10000</price>
+	</compactdisc>
+</compactdiscs>

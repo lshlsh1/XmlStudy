@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<bookList>
+	<book sid="1">
+		<name><![CDATA[애자일 & 스크럼 프로젝트 관리]]></name>
+		<writer>이재왕</writer>
+		<price><![CDATA[15,000]]></price>
+		<curriculumn>
+			<title><![CDATA[전통적 프로젝트 경영에서 벗어나기]]></title>
+			<sub><![CDATA[업무 범위, 일정, 비용은 반드시 지켜야 하는가?]]></sub>
+			<sub>프로젝트 일정 및 예산에 대한 진실 </sub>
+		</curriculumn>
+	</book>
+	<book sid="2">
+		<name><![CDATA[최범균의 JSP 2.3 웹 프로그래밍 기초부터 중급까지]]></name>
+		<writer>최범균</writer>
+		<price><![CDATA[27,000원]]></price>
+		<curriculumn>
+			<title>웹 프로그래밍 기초</title>
+			<sub>이 책의 범위</sub>
+			<sub>대상 독자</sub>
+		</curriculumn>
+	</book>
+</bookList>

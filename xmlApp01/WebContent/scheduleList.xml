@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 동일한 속성을 가지고 있는경우 속성(sid="?" 부분)을 사용하는 것이 좋다 -->
+<sceduleList>
+	<schedule sid="1">
+		<date>2019-01-01</date>
+		<hour>01</hour>
+		<content>신정</content>
+	</schedule>
+	<schedule sid="2">
+		<date>2019-02-11</date>
+		<hour>09</hour>
+		<content>개강</content>
+	</schedule>
+	<schedule sid="3">
+		<date>2019-07-19</date>
+		<hour>18</hour>
+		<content>수료</content>
+	</schedule>
+</sceduleList>
+

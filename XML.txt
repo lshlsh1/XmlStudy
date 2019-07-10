@@ -1,0 +1,112 @@
+■■■ XML ■■■
+
+○ XML 기본 규칙
+
+   - XML 문서 상단부에 선언부 작성
+     <?xml version="1.0"?>
+     <?xml version="1.0" encoding="UTF-8"?>
+
+   - 루트 엘리먼트 지정
+     루트 엘리먼트 이름은 사용자 스스로 결정
+     나머지 모든 엘리먼트는 루트 엘리먼트 하위에만 존재할 수 있다.
+     <?xml version="1.0" encoding="UTF-8"?>
+     <루트></루트>
+
+   - 물리적으로 저장할 때는 확장자 『.xml』 사용한다
+
+   - 시작 태그와 끝 태그를 짝을 맞춰서 사용한다
+
+   - 태그 간의 포함 관계를 이루어야 한다
+     (부모, 자식 관계 성립) → 트리 구조
+
+   - 태그에는 속성 표현이 가능하다
+     (속성="값" 형태로 표기)
+
+○ XML 사용 예
+
+   - 공공데이터포털
+     http://www.data.go.kr
+
+   - 기상청 RSS
+     http://www.kma.go.kr/
+     http://www.weather.go.kr/weather/lifenindustry/sevice_rss.jsp
+
+■■■ DTD ■■■
+
+○ XML 문서의 엘리먼트, 속성에 대한 구조(structure)를 표현한 문서
+
+○ DTD 샘플
+<!DOCTYPE 루트엘리먼트
+[
+<!ELEMENT 루트엘리먼트 (1차하위엘리먼트 목록)>
+<!ELEMENT 1차하위엘리먼트 (2차하위엘리먼트 목록)>
+<!ELEMENT 2차하위엘리먼트 (#PCDATA)>
+<!ATTLIST 2차하위엘리먼트
+	  속성이름 속성값 필수여부
+	  ...>
+[>
+
+○ DTD와 XML 문서의 결합
+   - 별도의 『.dtd』 파일 작성 후에 XML 문서와 연결
+     <?xml version="1.0" encoding="UTF-8"?>
+     <!DOCTYPE note SYSTEM "Note.dtd">		◀◀◀
+     <note>
+	<to>Tove</to>
+	<from>Jani</from>
+	<heading>Reminder</heading>
+	<body>Don't forget me this weekend!</body>
+     </note>
+   - XML 문서 내부에 삽입
+     <?xml version="1.0" encoding="UTF-8"?>
+     <!DOCTYPE note
+      [
+	   <!ELEMENT note (to,from,heading,body)>
+	   <!ELEMENT to (#PCDATA)>
+	   <!ELEMENT from (#PCDATA)>
+	   <!ELEMENT heading (#PCDATA)>
+	   <!ELEMENT body (#PCDATA)>
+      ]>
+     <note>
+	<to>Tove</to>
+	<from>Jani</from>
+	<heading>Reminder</heading>
+	<body>Don't forget me this weekend!</body>
+     </note>
+
+○ 문제
+   다음 DTD 문서 내용을 기반으로 XML 문서를 완성한다
+   데이터는 가상의 가수의 노래를 2곡 이상 추가할 수 있도록 한다
+  
+   <?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE compactdiscs [
+   <!ELEMENT compactdiscs (compactdisc+)
+   <!ELEMENT compactdisc (artist, title, tracks, price)>
+   <!ELEMENT artist (#PCDATA)>
+   <!ATTLIST artist type (individual | band) #REQUIRED>
+   <!ELEMENT title (#PCDATA)>
+   <!ATTLIST title numberoftracks CDATA #REQUIRED>
+   <!ELEMENT tracks (track*)>
+   <!ELEMENT price (#PCDATA)>
+   <!ELEMENT track (#PCDATA)>
+   ]>
+
+○ 문제
+   VEHICLES.xml 파일의 정보를 읽어내어 다음과 같은 정보를 출력한다.
+   『부모엘리먼트.getChildNodes()』메소드를 이용한다
+
+   ※ getNodeName() → 노드 이름
+      getNodeValue() → 노드 값
+      getNodeType() → 노드 종류
+
+   출력 예)
+   ---------------------------------------------------
+    NO	MAKE	MODEL	YEAR	STYLE		PRICE
+   ---------------------------------------------------
+    1   Dodge	Durango	1998	Sport Utility	18000
+  Options ------------------------
+	   Power_Locks : Yes
+ 	   Power_Window : Yes
+	   Stero : Redio/Cassette/CD
+	   ....
+    2  ....
+   ---------------------------------------------------
